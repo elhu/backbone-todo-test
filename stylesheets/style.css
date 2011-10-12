@@ -1,0 +1,66 @@
+.page-header h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 36px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.todo {
+  width: 470px;
+}
+
+div.todo.edit {
+  display: none;
+}
+
+.todo.stats .todo.count .number {
+  font-weight: bold;
+}
+
+li.todo {
+  margin-left: -20px;
+  margin-bottom: 5px;
+}
+
+.todo.new {
+  margin-bottom: 20px;
+}
+
+.todo.text {
+  display: inline;
+  margin-left: 10px;
+  font-size: 24px;
+  color: Black;
+}
+
+.todo.text.done {
+  text-decoration: line-through;
+}
+
+.todo.destroy {
+  width: 20px;
+  height: 20px;
+  background: url(../images/destroy.png) no-repeat 0 0;
+  float: right;
+}
+
+.todo.destroy:hover {
+  background-position: 0 -20px;  
+}
+
+div.clear {
+  clear: both;
+}
+.container {
+  width: 480px;
+  background: White;
+  padding: 20px;
+  box-shadow: DarkGray 0 5px 6px 0;
+}
+
+html, body {
+  background: LightGray;
+}

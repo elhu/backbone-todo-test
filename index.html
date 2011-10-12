@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="stylesheets/vendor/bootstrap.css" media="screen, projection">
+    <link rel="stylesheet" href="stylesheets/style.css" media="screen, projection">
+
+    <script src="javascripts/vendor/jquery-1.5.1.min.js"></script>
+    <script src="javascripts/vendor/underscore.js"></script>
+    <script src="javascripts/vendor/backbone.js"></script>
+    <script src="javascripts/vendor/backbone-localstorage.js"></script>
+
+    <script src="javascripts/models/todo.js"></script>
+
+    <script src="javascripts/views/todo.js"></script>
+    <script src="javascripts/views/page.js"></script>
+
+    <script src="javascripts/collections/todo_list.js"></script>
+
+    <script src="javascripts/routers/backbone_todo.js"></script>
+
+    <script src="javascripts/Todo.js"></script>
+
+    <script type='text/template' id='todo-template'>
+      <div class="todo show">
+        <input class="todo check" type="checkbox" />
+        <div class="todo text"><%= task %></div>
+        <span class="todo destroy"></span>
+      </div>
+      <div class="todo edit">
+        <input class="todo text-edit" type="text" value="<%= task %>"/>
+      </div>
+    </script>
+
+    <script type="text/template" id="page-template">
+      <div class="page-header">
+        <h1>Todos</h1>
+      </div>
+      <input type="text" class="todo new" />
+      <div class="clear" />
+      <ul class="todo-list span6">
+      </ul>
+      <div class="clear" />
+      <div class="todo stats"></div>
+    </script>
+ 
+
+    <script type="text/template" id="stats-template">
+      <% if (total) { %>
+        <span class="todo count">
+          <span class="number"><%= remaining %></span>
+          <span class="word"><%= remaining == 1 ? 'item' : 'items' %></span> left.
+        </span>
+      <% } %>
+      <% if (done) { %>
+        <span class="todo clear">
+          <a href="#">
+            Clear <span class="number-done"><%= done %></span>
+            completed <span class="word-done"><%= done == 1 ? 'item' : 'items' %></span>
+          </a>
+        </span>
+      <% } %>
+    </script>
+  </head>
+  <body>
+    <div id="container">
+    </div>
+  </div>
+  </body>
+</html
