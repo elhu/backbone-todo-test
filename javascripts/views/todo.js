@@ -8,6 +8,7 @@ $(document).ready(function() {
       'click .check': "toggleDone",
       'click .destroy': "removeFromTodoList",
       'dblclick .text': "switchState",
+      'blur .text-edit': "switchState",
       'keypress .text-edit': 'updateTask'
     },
 
@@ -20,6 +21,7 @@ $(document).ready(function() {
     switchState: function() {
       this.$(".todo.show").toggle();
       this.$(".todo.edit").toggle();
+      this.$(".todo.text-edit").focus();
     },
 
     removeFromTodoList: function() {

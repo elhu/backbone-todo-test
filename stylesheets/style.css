@@ -16,6 +16,11 @@ div.todo.edit {
   display: none;
 }
 
+.todo.text-edit {
+  height: 25px;
+  font-size: 24px;
+}
+
 .todo.stats .todo.count .number {
   font-weight: bold;
 }
