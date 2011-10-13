@@ -27,6 +27,10 @@ li.todo {
 
 .todo.new {
   margin-bottom: 20px;
+  width: 470px;
+  height: 45px;
+  font-size: 30px;
+  color: Black;
 }
 
 .todo.text {
