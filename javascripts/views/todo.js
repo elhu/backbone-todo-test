@@ -33,7 +33,7 @@ $(document).ready(function() {
     },
 
     updateTask: function(event) {
-      text = event.srcElement.value;
+      text = this.$(".todo.text-edit").val();
       if (event.which == 13) {
         this.model.updateTask(text);
       }

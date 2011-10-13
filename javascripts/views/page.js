@@ -51,7 +51,7 @@ $(document).ready(function() {
     },
 
     select: function(event) {
-      var text = event.srcElement.value;
+      var text = this.$(".todo.new").val();
       if (event.which == 13 && text != "") {
         this.queueTask(text);
         $(".todo.new").val("");
