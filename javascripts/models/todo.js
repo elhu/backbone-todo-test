@@ -1,4 +1,6 @@
 window.Todo = Backbone.Model.extend({
+  localStorage: new Store("todos"),
+
   defaults: {
     'done': false
   },

@@ -5,7 +5,7 @@
 // Generate four random hex digits.
 function S4() {
    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-};
+}
 
 // Generate a pseudo-GUID by concatenating random hexadecimal.
 function guid() {
@@ -24,13 +24,23 @@ _.extend(Store.prototype, {
 
   // Save the current state of the **Store** to *localStorage*.
   save: function() {
-    localStorage.setItem(this.name, JSON.stringify(this.data));
+    try {
+      localStorage.setItem(this.name, JSON.stringify(this.data));
+    }
+    catch (err) {
+      console.log("Exception rescued");
+      console.log(err);
+      console.log(this);
+    }
   },
 
   // Add a model, giving it a (hopefully)-unique GUID, if it doesn't already
   // have an id of it's own.
   create: function(model) {
     if (!model.id) model.id = model.attributes.id = guid();
+    console.log("data: ");
+    console.log(this.data);
+    console.log(model.id);
     this.data[model.id] = model;
     this.save();
     return model;
@@ -65,7 +75,7 @@ _.extend(Store.prototype, {
 // Override `Backbone.sync` to use delegate to the model or collection's
 // *localStorage* property, which should be an instance of `Store`.
 Backbone.sync = function(method, model, options) {
-
+  console.log("sssh, backbone is sync-ing");
   var resp;
   var store = model.localStorage || model.collection.localStorage;
 

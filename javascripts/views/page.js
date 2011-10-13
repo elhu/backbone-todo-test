@@ -50,7 +50,10 @@ $(document).ready(function() {
     },
 
     queueTask: function(task_content) {
-      this.collection.add(new Todo({task: task_content, collection: this.collection}));
+      task = new Todo({task: task_content, collection: this.collection});
+      task.save();
+      this.collection.add(task);
+      // this.collection.create({task: task_content, collection: this.collection});
     },
   });
 });
