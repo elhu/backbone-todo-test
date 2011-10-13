@@ -23,11 +23,13 @@ $(document).ready(function() {
     },
 
     removeFromTodoList: function() {
-      this.model.collection.remove(this.model);
+      this.options.collection.remove(this.model);
+      this.model.destroy();
     },
 
     toggleDone: function() {
       this.model.toggleDone();
+      this.model.save();
     },
 
     updateTask: function(event) {

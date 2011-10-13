@@ -38,6 +38,7 @@ li.todo {
 
 .todo.text.done {
   text-decoration: line-through;
+  color: DarkGray;
 }
 
 .todo.destroy {

@@ -11,8 +11,9 @@ $(document).ready(function() {
     },
     
     initialize: function() {
-      _.bindAll(this, 'render', 'renderTask', 'renderStats');
+      _.bindAll(this, 'render', 'renderTask', 'renderStats', 'renderTasks');
       this.collection.bind('add', this.renderTask);
+      this.collection.bind('reset', this.renderTasks);
       this.collection.bind('all', this.renderStats);
     },
 
@@ -34,9 +35,17 @@ $(document).ready(function() {
       }));
     },
 
+    renderTasks: function() {
+      var view = this;
+      this.collection.each(function(task) {
+        view.renderTask(task);
+      });
+    },
+
     renderTask: function(task) {
       var view = new TodoView({
-        model: task
+        model: task,
+        collection: this.collection,
       });
       this.$("ul").append(view.render().el);
     },
@@ -50,10 +59,9 @@ $(document).ready(function() {
     },
 
     queueTask: function(task_content) {
-      task = new Todo({task: task_content, collection: this.collection});
+      task = new Todo({task: task_content});
       task.save();
       this.collection.add(task);
-      // this.collection.create({task: task_content, collection: this.collection});
     },
   });
 });

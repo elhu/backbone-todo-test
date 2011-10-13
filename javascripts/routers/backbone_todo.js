@@ -13,5 +13,6 @@ window.BackboneTodo = Backbone.Router.extend({
     var $container = $("#container");
     $container.empty();
     $container.append(this.pageView.render().el);
+    $container.append(this.pageView.collection.fetch());
   }
 });

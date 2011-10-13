@@ -24,23 +24,15 @@ _.extend(Store.prototype, {
 
   // Save the current state of the **Store** to *localStorage*.
   save: function() {
-    try {
-      localStorage.setItem(this.name, JSON.stringify(this.data));
-    }
-    catch (err) {
-      console.log("Exception rescued");
-      console.log(err);
-      console.log(this);
-    }
+    window.data = this.data;
+    JSON.stringify(this.data);
+    localStorage.setItem(this.name, JSON.stringify(this.data));
   },
 
   // Add a model, giving it a (hopefully)-unique GUID, if it doesn't already
   // have an id of it's own.
   create: function(model) {
     if (!model.id) model.id = model.attributes.id = guid();
-    console.log("data: ");
-    console.log(this.data);
-    console.log(model.id);
     this.data[model.id] = model;
     this.save();
     return model;
@@ -75,7 +67,6 @@ _.extend(Store.prototype, {
 // Override `Backbone.sync` to use delegate to the model or collection's
 // *localStorage* property, which should be an instance of `Store`.
 Backbone.sync = function(method, model, options) {
-  console.log("sssh, backbone is sync-ing");
   var resp;
   var store = model.localStorage || model.collection.localStorage;
 
