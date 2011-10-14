@@ -15,5 +15,6 @@ window.Todo = Backbone.Model.extend({
 
   updateTask: function() {
     this.set({'task': text});
+    this.save();
   }
 });
